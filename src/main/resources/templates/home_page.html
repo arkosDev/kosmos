@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="~{header :: site-head}"></head>
+<body>
+	<nav th:replace="~{header :: site-nav}"></nav>
+	
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenido a la administración de Citas</h1>
+            <p class="lead">Puedes agendar Citas.</p>
+			
+			<a class="btn btn-primary btn-lg" href="/formCita" role="button">Agregar Cita</a>
+        </div>
+    </div>
+
+	<footer th:replace="~{header :: site-footer}"></footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

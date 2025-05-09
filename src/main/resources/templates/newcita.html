@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{header :: site-head}"></head>
+
+<body>
+    <nav th:replace="~{header :: site-nav}"></nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <form action="#" th:action="@{/adcita}" th:object="${citareq}" method="post" class="form-width"
+                enctype="multipart/form-data">
+                <div class="row">
+                    <!-- Selección de Doctor -->
+                    <div class="form-group col-md-6">
+                        <label for="doctor">Seleccione un doctor:</label>
+                        <select id="doctor" name="idDoctor" class="form-control" th:field="*{idDoctor}">
+                            <option value="" disabled selected>Seleccione un doctor</option>
+                            <option th:each="doctor : ${doctores}"
+                                    th:value="${doctor.get('id')}"
+                                    th:text="${doctor.get('nombre')}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Selección de Día -->
+                    <div class="form-group col-md-6">
+                        <label for="dia">Seleccione el día:</label>
+                        <input type="date" id="dia" name="dia" class="form-control" th:field="*{dia}" required>
+                    </div>
+
+                    <!-- Selección de Hora -->
+                    <div class="form-group col-md-6">
+                        <label for="hora">Seleccione la hora:</label>
+                        <input type="time" id="hora" name="hora" class="form-control" th:field="*{hora}" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Nombre del Paciente -->
+                    <div class="form-group col-md-6">
+                        <label for="nomPaciente">Nombre del Paciente:</label>
+                        <input type="text" id="nomPaciente" name="nomPaciente" class="form-control" th:field="*{nomPaciente}" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary">Guardar Cita</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer th:replace="~{header :: site-footer}"></footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
